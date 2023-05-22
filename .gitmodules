@@ -1,0 +1,6 @@
+[submodule "systemd-git"]
+	path = systemd-git
+	url = ssh://aur@aur.archlinux.org/alchemy-next-viewer-git.git
+[submodule "nosystemd-git"]
+	path = nosystemd-git
+	url = ssh://aur@aur.archlinux.org/alchemy-next-viewer-nosystemd-git.git
