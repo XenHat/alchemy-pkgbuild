@@ -1,7 +1,1 @@
-alchemy-next-viewer-git/
-src/
-pkg/
-*.bash
-*.tar.*
 .envrc
-.trunk
