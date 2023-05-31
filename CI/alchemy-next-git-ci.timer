@@ -1,0 +1,9 @@
+[Unit]
+Description=Alchemy Viewer CI Timer
+
+[Timer]
+OnUnitActiveSec=3s
+OnBootSec=30s
+
+[Install]
+WantedBy=timers.target

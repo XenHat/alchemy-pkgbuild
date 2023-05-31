@@ -1,0 +1,10 @@
+[Unit]
+Description=CI Build for Alchemy Viewer
+#StartLimitInterval=200
+#StartLimitBurst=5
+
+[Service]
+#Restart=always
+#RestartSec=30
+Type=oneshot
+ExecStart=%h/src/aur/alchemy-pkgbuild-template/CI/ci.bash
