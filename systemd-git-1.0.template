@@ -5,27 +5,18 @@ conflicts+=("alchemy-next-viewer-nosystemd-git")
 pkgver() {
   cd "${pkgname}" || exit 1
   (
-    set -o pipefail
-    vwr_version=$(cat indra/newview/VIEWER_VERSION.txt)
-    rev=$(git rev-list --count HEAD)
-    short=$(git rev-parse --short HEAD)
-    printf "%s.%s.%s" "${vwr_version}" "${rev}" "${short}"
-  )
+  set -o pipefail
+  vwr_version=$(cat indra/newview/VIEWER_VERSION.txt)
+  rev=$(git rev-list --count HEAD)
+  short=$(git rev-parse --short HEAD)
+  printf "%s.%s.%s" "${vwr_version}" "${rev}" "${short}"
+)
 }
 
-prepare() {
-  cd "${pkgname}" || exit 1
-  export USE_VENV=1
 # template start; name=prepare; version=1.0
 # template end
-}
-
-build() {
-  cd "${pkgname}" || exit 1
-  export USE_VENV=1
 # template start; name=build; version=1.0
 # template end
-}
 
 package() {
   mkdir -p "${pkgdir}/opt"
@@ -35,5 +26,4 @@ package() {
   sed -i 's;alchemy-viewer\.desktop;'"${pkgname}\.desktop"';' "${pkgname}/build-linux-64/newview/packaged/etc/refresh_desktop_app_entry.sh"
   mv "${pkgname}/build-linux-64/newview/packaged" "${pkgdir}/opt/${pkgname}"
 }
-# vi: set ai softtabstop=2 shiftwidth=2 tabstop=2 expandtab ft=bash :
 

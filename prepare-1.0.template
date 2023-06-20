@@ -1,12 +1,13 @@
-if [[ -n "$USE_VENV" ]]; then
-  virtualenv ".venv" -p python3
-  . ".venv/bin/activate"
-fi
+prepare() {
+  cd ${srcdir} || exit
+    echo "Creating virtual environment in $PWD"
+    virtualenv ".venv" -p python3
+    source "${srcdir}/.venv/bin/activate"
 
-echo "Installing build toolchain..."
-pip3 install --upgrade certifi --quiet
-pip3 install --upgrade llbase --quiet
-pip3 install --no-cache --upgrade autobuild --quiet
-pip3 install --upgrade cmake ninja
+    echo "Installing build toolchain..."
+    pip3 install --upgrade certifi --quiet
+    pip3 install --upgrade llbase --quiet
+    pip3 install --no-cache --upgrade autobuild --quiet
+    pip3 install --upgrade cmake ninja
+}
 
-# vi: set ai softtabstop=2 shiftwidth=2 tabstop=2 expandtab ft=sh :
