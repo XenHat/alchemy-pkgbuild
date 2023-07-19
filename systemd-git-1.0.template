@@ -1,11 +1,14 @@
 depends+=(dbus-glib systemd-libs)
 conflicts+=("alchemy-next-viewer-nosystemd-git")
 
-#template start; name=prepare; version=1.0
-#template end
+# template start; name=pkgver; version=1.0
+# template end
 
-#template start; name=build; version=1.0
-#template end
+# template start; name=prepare; version=1.0
+# template end
 
-#template start; name=package; version=1.0
-#template end
+# template start; name=build; version=1.0
+# template end
+
+# template start; name=package; version=1.0
+# template end

@@ -78,4 +78,3 @@ build() {
       echo "Building with ${AUTOBUILD_CPU_COUNT} jobs (adjusted)"
       $prefix_cmd autobuild build -A64 -c ReleaseOS --no-configure
     }
-
