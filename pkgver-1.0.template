@@ -1,0 +1,10 @@
+pkgver() {
+  cd "${pkgname}" || exit 1
+  (
+  set -o pipefail
+  vwr_version=$(cat indra/newview/VIEWER_VERSION.txt)
+  rev=$(git rev-list --count HEAD)
+  short=$(git rev-parse --short HEAD)
+  printf "%s.%s.%s" "${vwr_version}" "${rev}" "${short}"
+)
+}
