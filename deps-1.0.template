@@ -1,0 +1,15 @@
+depends=(glu libgl libiconv libidn libjpeg-turbo libpng libxss libxml2 mesa nss openal sdl2 vlc xdg-desktop-portal zlib)
+makedepends=('gcc' 'python-virtualenv' 'python-pip' 'git' 'xz')
+optdepends=(
+  'alsa-lib: ALSA support'
+  'freealut: OpenAL support'
+  'gamemode: Gamemode support'
+  'lib32-libidn11: SLVoice support'
+  'lib32-libsndfile: SLVoice support'
+  'lib32-util-linux: SLVoice support'
+  'lib32-gstreamer0.10: SLVoice support'
+  'libpulse: PulseAudio support'
+  'mesa-libgl: Intel, Radeon, Nouveau support'
+  'nvidia-libgl: NVIDIA support'
+  'nvidia-utils: NVIDIA support'
+  'wine: More up-to-date, less buggy SLVoice support')
