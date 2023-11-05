@@ -1,10 +1,10 @@
 prepare() {
   cd ${srcdir} || exit
-    echo "Creating virtual environment in $PWD"
+    msg2 "Creating virtual environment in $PWD"
     virtualenv ".venv" -p python3
     source "${srcdir}/.venv/bin/activate"
 
-    echo "Installing build toolchain..."
+    msg2 "Installing build toolchain..."
     pip3 install --upgrade certifi --quiet
     pip3 install --upgrade llbase --quiet
     pip3 install --no-cache --upgrade autobuild --quiet
