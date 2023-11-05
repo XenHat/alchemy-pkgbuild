@@ -28,20 +28,20 @@ build() {
         availableswapkb=$(cut -d ' ' -f 4 <<<"$swap_output")
       fi
       availablememorykbphysical=$(cut -d ' ' -f 7 <<<"$free_output")
-      msg2 "Total memory:         $totalmemorykbphysical (includes swap)"
-      msg2 "Available memory:     $availablememorykbphysical"
-      msg2 "Required memory:      $requiredmemorykb"
-      msg2 "Available physical memory on this system: $((availablememorykbphysical / 1024 / 1024)) GB"
-      msg2 "Estimated required memory to build with all cores: $((requiredmemorykb / 1024 / 1024)) GB"
+#      msg2 "Total memory:         $totalmemorykbphysical (includes swap)"
+#      msg2 "Available memory:     $availablememorykbphysical"
+#      msg2 "Required memory:      $requiredmemorykb"
+#      msg2 "Available physical memory on this system: $((availablememorykbphysical / 1024 / 1024)) GB"
+#      msg2 "Estimated required memory to build with all cores: $((requiredmemorykb / 1024 / 1024)) GB"
       if [[ ${requiredmemorykb} -gt ${availablememorykbphysical} ]]; then
-        msg2 "Warning: Not enough available physical memory to build with all cores"
+#        msg2 "Warning: Not enough available physical memory to build with all cores"
         if [[ ${usedmemorykbphysical} -lt ${availableswapkb} ]]; then
           # use all physical ram as swap will do its job
-          msg2 "There is enough free swap to store the currently used memory"
+#          msg2 "There is enough free swap to store the currently used memory"
           jobs=$(((totalmemorykbphysical / 1024 / 1024) / gigperlinkprocess))
         else
           # Not enough swap to hold ram contents, calculate manually
-          msg2 "Allocating build jobs according to available physical memory ("$((availablememorykbphysical / 1024 / 1024))"/"$((requiredmemorykb / 1024 / 1024))"GB)..."
+#          msg2 "Allocating build jobs according to available physical memory ("$((availablememorykbphysical / 1024 / 1024))"/"$((requiredmemorykb / 1024 / 1024))"GB)..."
           # FIXME: Goes one iteration beyond what it should
           while [[ $((jobs * mempercorekb)) -lt ${availablememorykbphysical} ]]; do
             jobs=$((jobs + 1))
@@ -52,7 +52,7 @@ build() {
           jobs=$((jobs - 1))
         fi
         build_jobs=${jobs}
-        msg2 "Computed job count: ${build_jobs}"
+#        msg2 "Adjusted job count: ${build_jobs}"
       fi
       fi
       fi
@@ -63,14 +63,14 @@ build() {
         -DUSE_LTO:BOOL=OFF
         -DVIEWER_CHANNEL="Alchemy Test"
       )
-      msg2 "BUILDENV: ${BUILDENV[*]}"
+      #msg2 "BUILDENV: ${BUILDENV[*]}"
       if [[ " ${BUILDENV[*]} " =~ ' ccache ' ]] && command -v ccache; then
-        msg2 "------ Will Use CCACHE ------"
         CMAKE_CXX_COMPILER_LAUNCHER="$(which ccache)"
         export CMAKE_CXX_COMPILER_LAUNCHER
+        msg2 "ccache was found and will be used"
       fi
       _logfile="${srcdir}/build.${CARCH}.$(date +%s).log"
       $prefix_cmd autobuild configure -A 64 -c ReleaseOS -- "${AL_CMAKE_CONFIG[@]}" | tee "$_logfile" 2>&1
-      msg2 "Building with ${AUTOBUILD_CPU_COUNT} jobs (adjusted)"
+      msg2 "Building with ${AUTOBUILD_CPU_COUNT} jobs"
       $prefix_cmd autobuild build -A64 -c ReleaseOS --no-configure | tee --append "${srcdir}/build.${CARCH}.$(date +%s).log" 2>&1
     }
