@@ -1,3 +1,13 @@
+# template start; name=base; version=1.0;
+# template end;
+# template start; name=deps; version=1.0;
+# template end;
+pkgname=alchemy-next-viewer-nosystemd-git
+pkgver=0.0.0.0
+pkgrel=1
+provides=('alchemy-viewer')
+source=("${pkgname}"::'git+https://git.alchemyviewer.org/alchemy/alchemy-next.git#branch='"${AL_BRANCH_OVERRIDE:-main}")
+sha256sums=('SKIP')
 depends+=(libelogind)
 conflicts+=("alchemy-next-viewer-systemd-git")
 
