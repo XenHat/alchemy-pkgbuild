@@ -8,7 +8,8 @@ pkgrel=1
 provides=('alchemy-viewer')
 source=("${pkgname}"::'git+https://git.alchemyviewer.org/alchemy/alchemy-next.git#branch='"${AL_BRANCH_OVERRIDE:-main}")
 sha256sums=('SKIP')
-depends+=('libelogind')
+# Not included as a dependency as it is impossible to update the package otherwise
+#depends+=('libelogind')
 conflicts+=("alchemy-next-viewer-systemd-git")
 
 # template start; name=pkgver; version=1.0
