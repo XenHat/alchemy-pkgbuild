@@ -1,5 +1,5 @@
-depends=(glu libgl libiconv libidn libjpeg-turbo libpng libxss libxml2 mesa nss openal sdl2 vlc zlib)
-makedepends=('gcc' 'python-virtualenv' 'python-pip' 'git' 'xz')
+depends=('glu' 'libgl' 'libiconv' 'libidn' 'libjpeg-turbo' 'libpng' 'libxml2' 'libxss' 'mesa' 'nss' 'openal' 'sdl2' 'vlc' 'zlib')
+makedepends=('gcc' 'python-pip' 'git')
 optdepends=(
   'alsa-lib: ALSA support'
   'freealut: OpenAL support'
