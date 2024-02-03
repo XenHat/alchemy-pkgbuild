@@ -9,8 +9,6 @@ echo "pwd     : [$(pwd)]"
 srcdir=$PWD
 dir_name=$(dirname "$0")
 
-export ENABLE_TESTS=OFF
-
 source "${dir_name}"/prepare-1.0.template
 source "${dir_name}"/build-1.0.template
 
