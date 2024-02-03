@@ -1,0 +1,2 @@
+source=("${pkgname}"::'git+https://git.alchemyviewer.org/alchemy/viewer.git#branch='"${AL_BRANCH_OVERRIDE:-main}")
+sha256sums=('SKIP')
