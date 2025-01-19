@@ -2,15 +2,15 @@
 # template end;
 # template start; name=deps; version=1.0;
 # template end;
-pkgname=alchemy-next-viewer-git
+pkgname=alchemy-viewer-git
 pkgver=0.0.0.0
 pkgrel=1
-replaces=('alchemy-viewer-git')
+replaces=('alchemy-next-viewer-git')
 provides=('alchemy-viewer')
 # template start; name=source; version=1.0
 # template end
 depends+=('dbus-glib' 'systemd-libs')
-conflicts+=("alchemy-next-viewer-nosystemd-git")
+conflicts+=("alchemy-viewer-nosystemd-git")
 
 # template start; name=pkgver; version=1.0
 # template end

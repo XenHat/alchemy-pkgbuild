@@ -2,7 +2,7 @@
 # template end;
 # template start; name=deps; version=1.0;
 # template end;
-pkgname=alchemy-next-viewer-nosystemd-git
+pkgname=alchemy-viewer-nosystemd-git
 pkgver=0.0.0.0
 pkgrel=1
 provides=('alchemy-viewer')
@@ -10,7 +10,7 @@ provides=('alchemy-viewer')
 # template end
 # Not included as a dependency as it is impossible to update the package otherwise
 #depends+=('libelogind')
-conflicts+=("alchemy-next-viewer-systemd-git")
+conflicts+=("alchemy-viewer-git")
 
 # template start; name=pkgver; version=1.0
 # template end
